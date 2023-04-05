@@ -37,5 +37,6 @@
   "files.associations": {
     "locale": "cpp",
     "array": "cpp"
-  }
+  },
+  "gitdoc.enabled": true
 }

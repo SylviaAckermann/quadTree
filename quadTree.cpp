@@ -152,8 +152,8 @@ void QuadTree(int x, int y, int size)
                 
     Square square;
     square.size = size;
-    square.locX = x;
-    square.locY = y;
+    square.locX = x+size/2;
+    square.locY = y+size/2;
     if(allFree==true)
         square.occupied = 0;
     else if (allOccupied==true) 
@@ -261,6 +261,7 @@ void collisionFreePaths()
                 {
                     // All ponts above or below line
                     // no intersection, check the next occupied square
+                    
                     continue;
                 }
                 else
@@ -284,7 +285,7 @@ void collisionFreePaths()
                         // TODO store these paths
 
 
-                        continue;
+                    
                         
                     }
                 }
