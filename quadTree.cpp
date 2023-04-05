@@ -205,14 +205,8 @@ void collisionFreePaths()
         for (int j = i + 1; j < freeSquareCount; j++)
         {
             // for all pairs of free squares
-            Ax = freeSquare[i].locX;
-            Ay = freeSquare[i].locY;
-            Bx = freeSquare[j].locX;
-            By = freeSquare[j].locY;
-
+            
             bool overOccupiedSquare = false;
-            LCDLine(Ay, Ax, By, Bx, BLUE);
-
 
             // Check all occupied squares to see if any intersect the path between two squares
 
@@ -290,8 +284,7 @@ void collisionFreePaths()
                         break;
                     }
                 }
-            }
-            if (0){ //!overOccupiedSquare
+                if (!overOccupiedSquare){ 
                         // a collision free path can be found so draw it
 
                         LCDLine(Ay, Ax, By, Bx, BLUE); // Draw it on screen
@@ -302,6 +295,8 @@ void collisionFreePaths()
 
                         // TODO store these path  
             }
+            }
+            
         }
     }
 }
