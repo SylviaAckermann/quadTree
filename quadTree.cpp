@@ -282,7 +282,7 @@ void collisionFreePaths()
                 }
             }
             if (!overOccupiedSquare){
-                // a collision free path can be found so draw it
+                        // a collision free path can be found so draw it
 
                         LCDLine(Ay, Ax, By, Bx, BLUE); // Draw it on screen
 
