@@ -270,7 +270,7 @@ void collisionFreePaths()
 
                     // formula as per lecture slides
 
-                    overOccupiedSquare = ((Ax > Ux && Bx > Ux) || (Ax < Rx && Bx < Rx) || (Ay > Uy && By > Uy) || (Ay < Ry && By < Ry));
+                    overOccupiedSquare = !((Ax > Ux && Bx > Ux) || (Ax < Rx && Bx < Rx) || (Ay > Uy && By > Uy) || (Ay < Ry && By < Ry));
 
                     if (overOccupiedSquare)
                     {
