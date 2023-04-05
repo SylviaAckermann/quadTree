@@ -220,8 +220,8 @@ void collisionFreePaths()
                 Ry = occupiedSquares[k].locY-occupiedSquares[k].size/2;
                 Sx = occupiedSquares[k].locX+occupiedSquares[k].size/2;
                 Sy = occupiedSquares[k].locY-occupiedSquares[k].size/2;
-                Tx = occupiedSquares[k].locX+occupiedSquares[k].size/2;
-                Ty = occupiedSquares[k].locY-occupiedSquares[k].size/2;
+                Tx = occupiedSquares[k].locX-occupiedSquares[k].size/2;
+                Ty = occupiedSquares[k].locY+occupiedSquares[k].size/2;
                 Ux = occupiedSquares[k].locX+occupiedSquares[k].size/2;
                 Uy = occupiedSquares[k].locY+occupiedSquares[k].size/2;
                 Ax = freeSquare[i].locX;
