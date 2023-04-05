@@ -199,6 +199,7 @@ Note uses variable names as per lecture slides
 
 void collisionFreePaths()
 {
+    int Rx, Ry, Sx, Sy, Tx, Ty, Ux, Uy, Ax, Ay, Bx, By;
     for (int i = 0; i < freeSquareCount; i++)
     {
         for (int j = i + 1; j < freeSquareCount; j++)
@@ -215,18 +216,18 @@ void collisionFreePaths()
                 int positiveFs = 0;
 
                 // TODO count negative and positive Fs as per algorithm
-                int Rx = occupiedSquares[k].locX-occupiedSquares[k].size/2;
-                int Ry = occupiedSquares[k].locY-occupiedSquares[k].size/2;
-                int Sx = occupiedSquares[k].locX+occupiedSquares[k].size/2;
-                int Sy = occupiedSquares[k].locY-occupiedSquares[k].size/2;
-                int Tx = occupiedSquares[k].locX+occupiedSquares[k].size/2;
-                int Ty = occupiedSquares[k].locY-occupiedSquares[k].size/2;
-                int Ux = occupiedSquares[k].locX+occupiedSquares[k].size/2;
-                int Uy = occupiedSquares[k].locY+occupiedSquares[k].size/2;
-                int Ax = freeSquare[i].locX;
-                int Ay = freeSquare[i].locY;
-                int Bx = freeSquare[j].locX;
-                int By = freeSquare[j].locY;
+                Rx = occupiedSquares[k].locX-occupiedSquares[k].size/2;
+                Ry = occupiedSquares[k].locY-occupiedSquares[k].size/2;
+                Sx = occupiedSquares[k].locX+occupiedSquares[k].size/2;
+                Sy = occupiedSquares[k].locY-occupiedSquares[k].size/2;
+                Tx = occupiedSquares[k].locX+occupiedSquares[k].size/2;
+                Ty = occupiedSquares[k].locY-occupiedSquares[k].size/2;
+                Ux = occupiedSquares[k].locX+occupiedSquares[k].size/2;
+                Uy = occupiedSquares[k].locY+occupiedSquares[k].size/2;
+                Ax = freeSquare[i].locX;
+                Ay = freeSquare[i].locY;
+                Bx = freeSquare[j].locX;
+                By = freeSquare[j].locY;
 
 
                 double f1 = (By - Ay)*Rx + (Ax-Bx)*Ry + (Bx*Ay-Ax*By);
@@ -262,11 +263,7 @@ void collisionFreePaths()
                     // All ponts above or below line
                     // no intersection, check the next occupied square
 
-                    LCDLine(Ay, Ax, By, Bx, BLUE); // Draw it on screen
-
-                    int distance = sqrt(pow(Ax-Bx, 2)+pow(Ax-Bx, 2));
-
-                    printf("Distance From (%i, %i) -> (%i, %i): %i\n", Ax, Ay, Bx, By, distance);
+                    
                     
                     continue;
                 }
@@ -276,11 +273,16 @@ void collisionFreePaths()
 
                     // formula as per lecture slides
 
-                    overOccupiedSquare = false;//!((Ax > Ux && Bx > Ux) || (Ax < Rx && Bx < Rx) || (Ay > Uy && By > Uy) || (Ay < Ry && By < Ry));
+                    overOccupiedSquare = !((Ax > Ux && Bx > Ux) || (Ax < Rx && Bx < Rx) || (Ay > Uy && By > Uy) || (Ay < Ry && By < Ry));
 
-                    if (overOccupiedSquare)
-                    {
-                        // a collision free path can be found so draw it
+                    if (overOccupiedSquare){
+                        // this is not a collision free path
+                        break;
+                    }
+                }
+            }
+            if (!overOccupiedSquare){
+                // a collision free path can be found so draw it
 
                         LCDLine(Ay, Ax, By, Bx, BLUE); // Draw it on screen
 
@@ -288,13 +290,7 @@ void collisionFreePaths()
 
                         printf("Distance From (%i, %i) -> (%i, %i): %i\n", Ax, Ay, Bx, By, distance);
 
-                        // TODO store these paths
-
-
-                    
-                        
-                    }
-                }
+                        // TODO store these path  
             }
         }
     }
