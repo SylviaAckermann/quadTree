@@ -215,14 +215,14 @@ void collisionFreePaths()
                 int positiveFs = 0;
 
                 // TODO count negative and positive Fs as per algorithm
-                int Rx = occupiedSquares[k].locX;
-                int Ry = occupiedSquares[k].locY;
-                int Sx = occupiedSquares[k].locX+occupiedSquares[k].size;
-                int Sy = occupiedSquares[k].locY;
-                int Tx = occupiedSquares[k].locX;
-                int Ty = occupiedSquares[k].locY+occupiedSquares[k].size;
-                int Ux = occupiedSquares[k].locX+occupiedSquares[k].size;
-                int Uy = occupiedSquares[k].locY+occupiedSquares[k].size;
+                int Rx = occupiedSquares[k].locX-occupiedSquares[k].size/2;
+                int Ry = occupiedSquares[k].locY-occupiedSquares[k].size/2;
+                int Sx = occupiedSquares[k].locX+occupiedSquares[k].size/2;
+                int Sy = occupiedSquares[k].locY-occupiedSquares[k].size/2;
+                int Tx = occupiedSquares[k].locX+occupiedSquares[k].size/2;
+                int Ty = occupiedSquares[k].locY-occupiedSquares[k].size/2;
+                int Ux = occupiedSquares[k].locX+occupiedSquares[k].size/2;
+                int Uy = occupiedSquares[k].locY+occupiedSquares[k].size/2;
                 int Ax = freeSquare[i].locX;
                 int Ay = freeSquare[i].locY;
                 int Bx = freeSquare[j].locX;
