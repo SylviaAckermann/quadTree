@@ -261,6 +261,12 @@ void collisionFreePaths()
                 {
                     // All ponts above or below line
                     // no intersection, check the next occupied square
+
+                    LCDLine(Ay, Ax, By, Bx, BLUE); // Draw it on screen
+
+                    int distance = sqrt(pow(Ax-Bx, 2)+pow(Ax-Bx, 2));
+
+                    printf("Distance From (%i, %i) -> (%i, %i): %i\n", Ax, Ay, Bx, By, distance);
                     
                     continue;
                 }
@@ -270,7 +276,7 @@ void collisionFreePaths()
 
                     // formula as per lecture slides
 
-                    overOccupiedSquare = ((Ax > Ux && Bx > Ux) || (Ax < Rx && Bx < Rx) || (Ay > Uy && By > Uy) || (Ay < Ry && By < Ry));
+                    overOccupiedSquare = false;//!((Ax > Ux && Bx > Ux) || (Ax < Rx && Bx < Rx) || (Ay > Uy && By > Uy) || (Ay < Ry && By < Ry));
 
                     if (overOccupiedSquare)
                     {
