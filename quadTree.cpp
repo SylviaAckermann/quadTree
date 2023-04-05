@@ -266,6 +266,7 @@ void collisionFreePaths()
                 {
                     // All ponts above or below line
                     // no intersection, check the next occupied square
+                    
 
                     
                     
