@@ -212,6 +212,10 @@ void collisionFreePaths()
 
             for (int k = 0; k < occupiedSquareCount; k++)
             {
+                if (occupiedSquares[k].size <= 2){
+                    continue;
+
+                }
                 int negativeFs = 0;
                 int positiveFs = 0;
 
